@@ -1,0 +1,59 @@
+{% extends 'adminbase.html'%}
+{% load static %}
+{% block contents %}
+
+
+
+<div class="intro-section" id="home-section">
+      <div class="container">
+        <div class="row align-items-center">
+          <div class="col-lg-4 mr-auto" data-aos="fade-up">
+            <h4 ><h2 style="color:white">Admin View Registered Users </h2>
+                    <table border="2px">
+                        <tr>
+                            <th style="color:Black">S.No</th>
+                            <th style="color:white">Name</th>
+                            <th style="color:Black">Email</th>
+                            <th style="color:Black">Mobile</th>
+                            <th style="color:Black">Place</th>
+                            <th style="color:Black">City</th>
+                            <th style="color:Black">Auth Key</th>
+                            <th style="color:Black">Status</th>
+                            <th style="color:Black">Activate</th>
+                        </tr>
+                        {% for i in object %}
+                        <tr>
+                            <td style="color:Black">{{i.id}}</td>
+                            <td style="color:white">{{i.loginid}}</td>
+                            <td style="color:Black">{{i.email}}</td>
+                            <td style="color:Black">{{i.mobile}}</td>
+                            <td style="color:Black">{{i.place}}</td>
+                            <td style="color:Black">{{i.city}}</td>
+                            <td style="color:Black">{{i.authkey}}</td>
+                            <td style="color:Black">{{i.status}}</td>
+
+                            {% if i.status == 'waiting' %}
+                                <td class="cta" > <a href="/activateadagency/?usid={{ i.id }}" class="nav-link" style="color:black"><span>Activate</span></a></td>
+                            {% else %}
+                            <td style="color:Black"> Activated</td>
+                            {% endif %}
+                        </tr>
+                        {% endfor %}
+
+                    </table></h4>
+
+
+
+            <!--<h1><p class="mb-5">Feature Engineering for Search Advertising Recognition.Meghana</p></h1>
+            <p><a href="#" class="btn btn-outline-light py-3 px-5">Get Started</a></p>-->
+          </div>
+        <!--<div class="col-lg-2 ml-auto"  data-aos="fade-up" data-aos-delay="100">
+            <figure class="img-absolute">
+               <img src="{% static 'images/registration.jpg' %}" alt="Image" class="img-fluid" width="500" >
+            </figure>
+          </div>-->
+        </div>
+      </div>
+    </div>
+
+  {% endblock %}

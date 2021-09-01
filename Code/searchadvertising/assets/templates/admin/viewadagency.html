@@ -1,0 +1,46 @@
+{% extends 'adminbase.html'%}
+{% load static %}
+{% block contents %}
+
+
+
+<div class="intro-section" id="home-section">
+      <div class="container">
+        <div class="row align-items-center">
+          <div class="col-lg-4 mr-auto" data-aos="fade-up">
+
+              <br><br><br><br><h3 style="color:white">View Upload adds:</h3>
+                   <div class="col-sm-4" style="background-color:;border:;">
+
+        <table align="center" style="margin-top:10px;">
+                        <thead>
+                          <tr style="color:White">
+                            <th>Image</th>
+                            <th>category</th>
+                            <th>property</th>
+                            <th>brand</th>
+                            <th>city</th>
+                            <th>price</th>
+
+                          </tr>
+                        </thead>
+                        {% for adds in adds %}
+                            <tr style="color:Black">
+            <td><img src="{{adds.file.url}}" style="width:10em;height:10em;"></td>
+                                <td>{{adds.category}}</td>
+                                <td>{{adds.property}}</td>
+                                <td>{{adds.brand}}</td>
+                                <td>{{adds.city}}</td>
+                                <td>{{adds.price}}</td>
+
+
+                            </tr>
+                            {% endfor %}
+                    </table>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+  {% endblock %}

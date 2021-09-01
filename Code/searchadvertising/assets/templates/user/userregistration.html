@@ -1,0 +1,45 @@
+{% extends 'base.html'%}
+{% load static %}
+{% block contents %}
+
+
+
+<div class="intro-section" id="home-section">
+      <div class="container">
+        <div class="row align-items-center">
+          <div class="col-lg-4 mr-auto" data-aos="fade-up">
+            <h4 ><form action="{% url 'userregistration' %}" method="POST" class="form-box">
+                      {% csrf_token %}
+                        <table>
+                            <tr><td style="color:white">Login ID</td><td >{{form.loginid}}</td></tr>
+                            <tr><td style="color:white">Password</td><td>{{form.password}}</td></tr>
+                            <tr><td style="color:white">Email</td><td>{{form.email}}</td></tr>
+                            <tr><td style="color:white">Mobile</td><td>{{form.mobile}}</td></tr>
+                            <tr><td style="color:white">Gender</td><td>{{form.gender}}</td></tr>
+                            <tr><td style="color:white">Age</td><td>{{form.age}}</td></tr>
+                            <tr><td style="color:white">Occupation</td><td>{{form.occupation}}</td></tr>
+                            <tr><td style="color:white">Place</td><td>{{form.place}}</td></tr>
+                            <tr><td style="color:white">City</td><td>{{form.city}}</td></tr>
+                            <tr><td></td><td>{{form.authkey}}</td></tr>
+                            <tr><td></td><td>{{form.status}}</td></tr>
+                            </table>
+                            <div class="form-group">
+                                <input type="submit"  value="Sign up" style="color:Blue">
+                            </div>
+            </form></h4>
+
+
+
+            <!--<h1><p class="mb-5">Feature Engineering for Search Advertising Recognition.Meghana</p></h1>
+            <p><a href="#" class="btn btn-outline-light py-3 px-5">Get Started</a></p>-->
+          </div>
+        <div class="col-lg-2 ml-auto"  data-aos="fade-up" data-aos-delay="100">
+            <figure class="img-absolute">
+               <img src="{% static 'images/registration.jpg' %}" alt="Image" class="img-fluid" width="500" >
+            </figure>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  {% endblock %}
